@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netstandard2.0</TargetFramework>
+	<LangVersion>8.0</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+	<Nullable>disable</Nullable>
+	<Authors>lyzcren</Authors>
+	<Description>DotNetCore.CAP达梦数据库驱动</Description>
+	<RepositoryUrl>https://github.com/lyzcren/DotNetCore.CAP.Dameng</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<LicenseExpression>MIT</LicenseExpression>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+	<PackageTags>CAP;DotNetCore.CAP;DM8;Dameng;达梦</PackageTags>
+	<Version>3.1.2-preview20241028</Version>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="DM.Microsoft.EntityFrameworkCore" Version="3.1.0.27907" />
+    <PackageReference Include="DotNetCore.CAP" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="../../LICENSE.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>

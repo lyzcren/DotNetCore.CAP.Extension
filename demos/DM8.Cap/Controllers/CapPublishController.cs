@@ -1,0 +1,34 @@
+using DotNetCore.CAP;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+
+namespace DM8.Cap.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class CapPublishController : ControllerBase
+    {
+        private readonly ILogger<CapPublishController> _logger;
+        private readonly ICapPublisher _capPublisher;
+
+        public CapPublishController(ILogger<CapPublishController> logger, ICapPublisher capPublisher)
+        {
+            _logger = logger;
+            _capPublisher = capPublisher;
+        }
+
+        [HttpPost(Name = "/publish")]
+        public async Task Publish(string obj)
+        {
+            await _capPublisher.PublishAsync("cap.publish.test", obj);
+        }
+
+        [NonAction]
+        [CapSubscribe("cap.publish.test")]
+        public async Task Recieved(string message)
+        {
+            _logger.LogInformation("收到消息：{@Message}", message);
+        }
+    }
+}
