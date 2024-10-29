@@ -1,13 +1,14 @@
-## CAP 达梦数据库驱动
+## CAP 达梦、OpenGauss 数据库驱动
 
-CAP 支持达梦数据库存储，CAP 项目地址：https://github.com/dotnetcore/CAP
+CAP 支持 **达梦** / **OpenGauss** 数据库存储，CAP 项目地址：https://github.com/dotnetcore/CAP
 
 ### 开始
 
-NuGet 安装 DotNetCore.CAP.Dameng
+NuGet 安装 DotNetCore.CAP.Dameng / DotNetCore.CAP.OpenGauss
 
 ```shell
 PM> Install-Package DotNetCore.CAP.Dameng
+PM> Install-Package DotNetCore.CAP.OpenGauss
 ```
 
 ### 配置
@@ -26,6 +27,11 @@ public void ConfigureServices(IServiceCollection services)
             opt.ConnectionString = configuration[$"CAP:ConnectionStrings"];
             opt.Schema = configuration[$"CAP:Schema"] ?? "CAP";  // 支持配置 Schema
             opt.TableNamePrefix = configuration[$"CAP:TableNamePrefix"];  // 支持配置表名前缀
+        });
+        x.UseOpenGauss(opt =>
+        {
+            opt.ConnectionString = configuration[$"CAP:ConnectionStrings"];
+            opt.Schema = configuration[$"CAP:Schema"] ?? "CAP";  // 支持配置 Schema
         });
         // 根据官方文档配置消息队列，比如 RabbitMQ
         x.UseRabbitMQ("HostName");
