@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
 	<Authors>lyzcren</Authors>
 	<Description>DotNetCore.CAP达梦数据库驱动</Description>
-	<RepositoryUrl>https://github.com/lyzcren/DotNetCore.CAP.Dameng</RepositoryUrl>
+	<RepositoryUrl>https://github.com/lyzcren/DotNetCore.CAP.Extension</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<LicenseExpression>MIT</LicenseExpression>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
